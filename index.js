@@ -12,22 +12,46 @@ const paymentRoutes = require("./src/routes/paymentRoutes")
 
 const app = express();
 
+//Enable This when you are using local host
+// Proper CORS Configuration
+// app.use(cors({
+//   origin: "http://localhost:3000",  // Allow only your frontend
+//   methods: "GET, POST, PUT, DELETE",
+//   allowedHeaders: "Content-Type, Authorization",
+//   credentials: true  
+// }));
+
+// // Handle Preflight (OPTIONS) Requests
+// app.options("*", cors({
+//   origin: "http://localhost:3000",
+//   credentials: true
+// }));
+
+// // Body parser
+// app.use(bodyParser.json());
+// app.use(express.json());
+
+
+
+//Dsable this when you are using local host
 app.use(cors({
-  origin: "http://localhost:3000", 
-  methods: "GET, POST, PUT, DELETE",
-  allowedHeaders: "Content-Type, Authorization",
-  credentials: true  
-}));
-
-
-app.options("*", cors({
-  origin: "http://localhost:3000",
-  credentials: true
+  origin: ["https://co-working-frontend.vercel.app", "http://localhost:3000"],
+  credentials: true, 
+  methods: ["GET", "POST", "PUT", "DELETE"], 
+  allowedHeaders: ["Content-Type", "Authorization"], 
 }));
 
 
 app.use(bodyParser.json());
 app.use(express.json());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://co-working-frontend.vercel.app", "http://localhost:3000");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 
 connectDB();
 

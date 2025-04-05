@@ -1,5 +1,5 @@
 {
-  "name": "amazonapi",
+  "name": "co workings",  
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,7 +7,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "codecraftiness",
+  "author": "codewithRitesh",
   "license": "ISC",
   "description": "",
   "dependencies": {
