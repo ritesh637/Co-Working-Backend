@@ -35,7 +35,7 @@ const app = express();
 
 //Dsable this when you are using local host
 app.use(cors({
-  origin: ["https://co-working-frontend.vercel.app", "http://localhost:3000"],
+  origin: ["https://co-working-frontend-git-main-ritesh-kumars-projects-3aa7a863.vercel.app/", "https://co-working-frontend.vercel.app", "http://localhost:3000/"],
   credentials: true, 
   methods: ["GET", "POST", "PUT", "DELETE"], 
   allowedHeaders: ["Content-Type", "Authorization"], 
@@ -46,7 +46,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://co-working-frontend.vercel.app", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin","https://co-working-frontend-git-main-ritesh-kumars-projects-3aa7a863.vercel.app", "https://co-working-frontend.vercel.app", "http://localhost:3000/");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
